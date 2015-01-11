@@ -19,7 +19,7 @@ var serialPort = new SerialPort(serialDevice, { baudrate: 9600 });
 serialPort.on('open', function () {
 	console.log('Serial device: ' + serialDevice + ' opened, starting server...');
 	app = Express();
-	app.use(express.static(__dirname + '/public'));
+	app.use(Express.static(__dirname + '/public'));
 	app.use(BodyParser.urlencoded({ extended: true }));
 	app.post('/send', function (req, res) {
 		var command = req.body.command;
