@@ -9,7 +9,7 @@
 		
 		// Wire up the button handler
 		$( "#sendCommand" ).on( "click", function () {
-			var postData = "command=" + $("#command").text;
+			var postData = "command=" + $("#command").val();
 			$.post("/send", postData, function (resultText) {
 				$("#result").text(resultText);
 			});
