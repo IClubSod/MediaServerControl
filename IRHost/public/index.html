@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+	<!-- Include jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+	$( document ).ready(function() {
+    	$( "#result" ).text( "No result to display." );
+		
+		// Wire up the button handler
+		$( "#sendCommand" ).on( "click", function () {
+			var postData = "command=" + $("#command").text;
+			$.post("/send", postData, function (resultText) {
+				$("#result").text(resultText);
+			});
+		});
+  	});
+
+	</script>	
+	</head>
+	<body>
+		<p>Command to send: <input type="text" id="command"/></p>
+		<p>Result: <span id="result">Loading...</span></p>
+		<button type="button" id="sendCommand">Send Command</button>
+	</body>
+</html>
